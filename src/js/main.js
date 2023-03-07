@@ -11,11 +11,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modals();
     sliders('.feedback-slider-item', 'horizontal', 3000, '.main-prev-btn', '.main-next-btn');
-    sliders('.main-slider-item', 'vertical', 3500);
+    sliders('.main-slider-item', 'vertical', 5000);
     forms();
     mask("[name='phone']");
     checkTextInputs('[name="name"]');
     checkTextInputs('[name="message"]');
-    showMoreStyles('.button-styles', '.styles-2')
+    showMoreStyles('.button-styles', '#styles .row')
 
 });

@@ -3,7 +3,8 @@ import {postData} from '../services/requests';
 const forms = () => {
     const form = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
-          upload = document.querySelectorAll('[name="upload"]');
+          upload = document.querySelectorAll('[name="upload"]'),
+          price = document.querySelector('.calc-price');
 
     const message = {
         loading: 'Загрузка...',
@@ -18,8 +19,6 @@ const forms = () => {
         designer: 'assets/server.php',
         question: 'assets/question.php'
     };
-
-    
 
     const clearInputs = () => {
         inputs.forEach( item => {
@@ -63,11 +62,10 @@ const forms = () => {
             textMessage.textContent = message.loading;
             statusMessage.appendChild(textMessage);
 
-            const formData = new FormData(item);
+            const formData = new FormData(item || price);
             let api;
             item.closest('.popup-design') || item.classList.contains('calc_form') ? api = path.designer : api = path.question;
             console.log(api);
-
 
             postData(api, formData)
                 .then(res => {
